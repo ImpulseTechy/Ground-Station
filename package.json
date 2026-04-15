@@ -4,10 +4,10 @@
     "description": "Professional Desktop Ground Station",
     "main": "electron-main.js",
     "scripts": {
-        "start": "electron .",
-        "dev": "NODE_ENV=development electron .",
+        "start": "npm run build --prefix frontend && npm run serve",
+        "dev": "npx concurrently \"npm run dev --prefix frontend\" \"npm run serve\"",
         "serve": "node server-web.js",
-        "dist": "cd frontend && npm run build && cd .. && electron-builder"
+        "install-all": "npm install && npm install --prefix frontend"
     },
     "build": {
         "appId": "com.GroundStation.groundstation",
